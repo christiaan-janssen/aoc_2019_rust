@@ -10,7 +10,9 @@ fn main() {
 
     let mut total_fuel: i32 = 0;
     for w in masses {
-        total_fuel += one_a(w.parse::<i32>().unwrap())
+        total_fuel += calculate_fuel_for_mass(w.parse::<i32>().unwrap())
     }
-    println!("{}",total_fuel);
+    println!("Puzzle 01 A, mass: {}",total_fuel);
+
+    println!("{}", calculate_fuel_for_fuel(100756, 0));
 }
