@@ -1,5 +1,7 @@
+use std::cmp;
+
 pub fn calculate_fuel_for_mass(mass: i32) -> i32 {
-    (mass / 3) - 2
+    cmp::max((mass / 3) - 2, 0)
 }
 
 pub fn calculate_fuel_for_fuel(mass: i32, fuel: i32) -> i32 {
@@ -32,7 +34,16 @@ mod tests {
     /// Puzzle 01 B tests
     #[test]
     fn test_one_b_value_14() {
-        assert_eq!(0, calculate_fuel_for_fuel(14, 0));
+        assert_eq!(2, calculate_fuel_for_fuel(14, 0));
     }
 
+    #[test]
+    fn test_one_b_value_1969() {
+        assert_eq!(966, calculate_fuel_for_fuel(1969, 0));
+    }
+
+    #[test]
+    fn test_one_b_value_100756() {
+        assert_eq!(50346, calculate_fuel_for_fuel(100756, 0));
+    }
 }

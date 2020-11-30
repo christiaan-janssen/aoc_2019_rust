@@ -9,10 +9,14 @@ fn main() {
     let masses: Vec<&str> = input.split("\n").collect();
 
     let mut total_fuel: i32 = 0;
-    for w in masses {
+    for w in &masses {
         total_fuel += calculate_fuel_for_mass(w.parse::<i32>().unwrap())
     }
     println!("Puzzle 01 A, mass: {}",total_fuel);
 
-    println!("{}", calculate_fuel_for_fuel(100756, 0));
+    total_fuel = 0;
+    for w in &masses {
+        total_fuel += calculate_fuel_for_fuel(w.parse::<i32>().unwrap(), 0)
+    }
+    println!("Puzzel 01 B, mass: {}", total_fuel);
 }
